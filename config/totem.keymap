@@ -213,8 +213,8 @@
             bindings = <
                 &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp BSLH        &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK
                 &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE       &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
-    &kp COMMA   &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp TILDE       &kp EXCL    &kp N1      &kp N2      &kp N3     &kp N0      &kp SPACE
-                                        &trans       &trans      &trans          &kp BSPC    &kp PLUS    &kp MINUS
+    &kp MINUS   &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp TILDE       &kp EXCL    &kp N1      &kp N2      &kp N3     &kp N0      &kp PLUS
+                                        &trans       &trans      &trans          &kp BSPC    &kp SPACE   &kp COMMA
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
