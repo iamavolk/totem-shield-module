@@ -55,7 +55,7 @@
         slt: sticky_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             tapping-term-ms = <200>;
             /* require-prior-idle-ms = <250>; */
             bindings = <&mo>, <&sk>;
