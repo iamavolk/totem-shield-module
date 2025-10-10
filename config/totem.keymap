@@ -55,7 +55,7 @@
         slt: sticky_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "hold-preferred";
             tapping-term-ms = <200>;
             /* require-prior-idle-ms = <250>; */
             bindings = <&mo>, <&sk>;
@@ -201,7 +201,7 @@
         nav_layer {
             label= "NAV";
             bindings = <
-                &trans     &kp LG(N7)  &kp LG(N8)   &kp LG(N9)  &trans          &trans     &eight_down  &eight_up   &trans      &kp DEL
+                &trans     &kp LG(N7)  &kp LG(N8)   &kp LG(N9)  &trans          &kp GRAVE  &eight_down  &eight_up   &trans      &kp DEL
                 &trans     &kp LG(N4)  &kp LG(N5)   &kp LG(N6)  &trans          &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans
     &kp EXCL    &kp LG(N0) &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &trans     &four_down   &four_up    &kp GT      &kp LT     &kp QMARK
                                        &trans       &trans      &trans          &trans     &trans       &trans
@@ -211,8 +211,8 @@
         num_sym_layer {
             label= "NSL";
             bindings = <
-                &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp BSLH        &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp ASTRK
-                &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp GRAVE       &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
+                &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp BSLH        &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp DOT
+                &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp ASTRK       &kp UNDER   &kp N4      &kp N5      &kp N6     &kp EQUAL
     &kp COMMA   &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp TILDE       &kp SEMI    &kp N1      &kp N2      &kp N3     &kp N0      &kp SPACE
                                         &trans       &trans      &trans          &kp BSPC    &kp PLUS    &kp MINUS
             >;
