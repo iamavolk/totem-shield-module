@@ -224,7 +224,7 @@
                 &sys_reset   &trans     &trans       &trans      &trans          &trans      &trans      &trans       &trans      &trans
                 &bootloader  &trans     &trans       &trans      &trans          &bt BT_NXT  &trans      &trans       &trans      &trans
     &bt BT_CLR  &out OUT_TOG &trans     &trans       &trans      &trans          &bt BT_PRV  &trans      &trans       &trans      &trans    &trans
-                                        &trans       &trans      &trans          &trans      &trans      &trans
+                                        &trans       &trans      &kp LS(SPACE)   &trans      &trans      &trans
             >;
         };
     };
