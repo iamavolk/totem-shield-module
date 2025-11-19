@@ -71,6 +71,22 @@
             display-name = "Sticky-Mod-Tap";
         };
 
+       /*   Tapping the key invokes the Caps-Word
+        *   behavior while holding it is used
+        *   as a regular key press.
+        *
+        *   One thing to note here is that the second parameter
+        *   is passed a dummy argument value (e.g. 0), per the 
+        *   official documentation.
+        */
+        ht_caps: hold_tap_caps {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&caps_word>;
+            display-name = "Caps Hold Tap";
+        };
+
        /*   CTRL -based behavior of what would normally be a plain SPACE.
         *   Implemented as nested mod-morphs. The main idea is that `space`
         *   and `comma` are among the most commonly typed characters; hence
@@ -194,7 +210,7 @@
                   &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
                   &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
     &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &s_slash  &lt 3 RET
-                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mm_ctrl_bspc  &caps_tdr       &kp RA(RCTRL)
+                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mm_ctrl_bspc  &sk RALT        &ht_caps RA(RCTRL) 0
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
