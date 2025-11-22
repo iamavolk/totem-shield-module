@@ -217,9 +217,9 @@
         nav_layer {
             label= "NAV";
             bindings = <
-                &trans     &kp LG(N7)  &kp LG(N8)   &kp LG(N9)  &trans          &kp GRAVE  &eight_down  &eight_up   &trans      &kp DEL
-                &trans     &kp LG(N4)  &kp LG(N5)   &kp LG(N6)  &trans          &kp LEFT   &kp DOWN     &kp UP      &kp RIGHT   &trans
-    &kp EXCL    &kp LG(N0) &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &trans     &four_down   &four_up    &kp GT      &kp LT     &kp QMARK
+                &trans     &kp LG(N7)  &kp LG(N8)   &kp LG(N9)  &trans          &kp GRAVE  &kp RA(F)    &eight_down &eight_up   &kp RA(B)
+                &trans     &kp LG(N4)  &kp LG(N5)   &kp LG(N6)  &trans          &trans     &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT
+    &kp EXCL    &kp LG(N0) &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &trans     &kp GT       &four_down   &four_up    &kp LT     &kp QMARK
                                        &trans       &trans      &trans          &trans     &trans       &trans
             >;
         };
