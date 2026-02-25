@@ -210,9 +210,9 @@
                   &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
                   &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
     &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &s_slash  &lt 3 RET
-                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mm_ctrl_bspc  &sk LALT        &ht_caps RA(RCTRL) 0
-                                        /* &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mm_ctrl_bspc  &smt RSHFT LALT         &ht_caps RA(RCTRL) 0 */
-            >;
+                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mm_ctrl_bspc  &sk LALT        &ht_caps LSHFT 0
+                                        /* &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mm_ctrl_bspc  &sk LALT        &ht_caps RA(RCTRL) 0 */
+            
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
         nav_layer {
