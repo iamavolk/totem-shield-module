@@ -209,10 +209,8 @@
             bindings = <
                   &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
                   &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
-    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &s_slash  &lt 3 EQUAL
+    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &kp EQUAL &lt 3 RET
                                         &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mm_ctrl_bspc  &sk LALT        &ht_caps LSHFT 0
-                                        /* &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mm_ctrl_bspc  &sk LALT        &ht_caps RA(RCTRL) 0 */
-            
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
         nav_layer {
@@ -220,7 +218,7 @@
             bindings = <
                 &trans     &kp LG(N7)  &kp LG(N8)   &kp LG(N9)  &trans          &kp DQT    &kp RA(F)    &eight_down &eight_up   &kp RA(B)
                 &trans     &kp LG(N4)  &kp LG(N5)   &kp LG(N6)  &trans          &kp ESC    &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT
-    &kp EXCL    &kp LG(N0) &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &kp COLON  &kp GT       &four_down   &four_up    &kp LT     &kp QMARK
+    &kp EXCL    &kp LG(N0) &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &kp COLON  &kp GT       &four_down   &four_up    &kp LT     &kp FSLH
                                        &trans       &trans      &trans          &kp QMARK  &kp EXCL     &trans
             >;
         };
