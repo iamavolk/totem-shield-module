@@ -3,7 +3,8 @@ id: totem
 name: TOTEM
 type: shield
 url: https://github.com/GEIGEIGEIST/TOTEM
-requires: [seeeduino_xiao_ble]
+# requires: [seeeduino_xiao_ble]
+requires: [seeed_xiao]
 features:
   - keys
 siblings:
