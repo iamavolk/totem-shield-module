@@ -37,10 +37,9 @@ I use neither of those (I use a slightly customized [Graphite](https://github.co
 - depending on the chip (original Xiao vs replica) you may need to wait a bit until it unmounts itself and disappears
     (if it doesn't you most likely have a bootloader issue)
 - the Xiao might be finicky with the initial Bluetooth pairing. Here's what I recommend if you're experiencing connectivity and are unable to pair the device:
-    1. turn off and connect the boards to your machine via USB.
-    2. upload the `settings_reset-xiao_zmk.uf2` firmware (included in this repo as well as part of the build artifacts) to each.
-    3. when the device unmounts and disappears, reconnect and remount. Keep the boards off.
-    4. flash regular firmware
-    5. this procedure allows you to start from clean slate. don't forget to remove the bluetooth connection that may
-    or may not be saved by your bluetoothctl daemon
-- There's also a GUI interface called ZMK Studio for those who prefer clicks and visuals to writing code-like configs but I haven't tried it just yet.
+    - turn off and connect the boards to your machine via USB.
+    - upload the [settings_reset-xiao_zmk.uf2](./artifacts/settings_reset-xiao_zmk.uf2) firmware to both.
+    - when the device unmounts and disappears, reconnect and remount.
+    - flash regular firmware
+    - this procedure allows you to start from clean slate. Don't forget to remove the bluetooth connection that may have been saved by your bluetooth daemon
+- There's also a GUI/web interface, [ZMK Studio](https://zmk.dev/docs/features/studio), for those who prefer visuals and runtime updates to writing code-like configs and flashing firmware. This is WIP at the moment.
