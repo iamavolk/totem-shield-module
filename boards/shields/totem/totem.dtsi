@@ -5,14 +5,19 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "totem-layout.dtsi"
+
+&physical_layout0 {
+    transform = <&matrix_transform>;
+};
 
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
+        zmk,physical-layout = &physical_layout0;
     };
 
-    default_transform: keymap_transform_0 {
+    matrix_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <10>;
         rows = <4>;

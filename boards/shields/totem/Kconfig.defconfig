@@ -1,10 +1,11 @@
+# Copyright (c) 2022 The ZMK Contributors
+# SPDX-License-Identifier: MIT
 
 if SHIELD_TOTEM_LEFT
 
-# Name has to be fewer than 16 characters long
 config ZMK_KEYBOARD_NAME
     default "TOTEM"
-
+    
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
