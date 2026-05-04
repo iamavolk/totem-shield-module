@@ -20,7 +20,7 @@ is more than twice as cheap (~$10 at the time of writing).
 
 
 The default firmware uses standard QWERTY keyboard with Home-Row mods. 
-I use neither of this (I use a slightly customized [Graphite](https://github.com/rdavison/graphite-layout) layout, if you're curious) but the firmware is included in the **artifacts** directory
+I use neither of those (I use a slightly customized [Graphite](https://github.com/rdavison/graphite-layout) layout, if you're curious) but the firmware is included in the **artifacts** directory
 [default firmware](./artifacts/)
 
 ### Here's a pic:
@@ -43,3 +43,4 @@ I use neither of this (I use a slightly customized [Graphite](https://github.com
     4. flash regular firmware
     5. this procedure allows you to start from clean slate. don't forget to remove the bluetooth connection that may
     or may not be saved by your bluetoothctl daemon
+- There's also a GUI interface called ZMK Studio for those who prefer clicks and visuals to writing code-like configs but I haven't tried it just yet.
