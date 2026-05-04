@@ -10,7 +10,7 @@
 Originally conceived and designed by [GEIST](https://github.com/GEIGEIGEIST)  
 Hardware files and the build process guide can be found [here](https://github.com/GEIGEIGEIST/totem)
 
-[TOTEM layout](./docs/images/TOTEM_layout.svg)
+![TOTEM layout](./docs/images/TOTEM_layout.svg)
 
 ## My build
 
@@ -21,7 +21,7 @@ is more than twice as cheap (~$10 at the time of writing).
 
 The default firmware uses standard QWERTY keyboard with Home-Row mods. 
 I use neither of this (I use a slightly customized [Graphite](https://github.com/rdavison/graphite-layout) layout, if you're curious) but the firmware is included in the **artifacts** directory
-![default firmware](./artifacts/)
+[default firmware](./artifacts/)
 
 ### Here's a pic:
 ![build](./docs/images/build.png)
