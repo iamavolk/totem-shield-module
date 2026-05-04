@@ -17,14 +17,12 @@
 #     cmake-args: -DCONFIG_ZMK_STUDIO=y
 #     artifact-name: corne_left_with_studio
 #
----
+
 include:
-  - board: seeeduino_xiao_ble
-  # - board: xiao_ble
-    shield: totem_left
-  - board: seeeduino_xiao_ble
-  # - board: xiao_ble
-    shield: totem_right
-  # - board: seeeduino_xiao_ble
-  # - board: xiao_ble
-    # shield: settings_reset
+  - board: xiao_ble//zmk
+    shield: totem_left rgbled_adapter
+    snippet: zmk-usb-logging
+  - board: xiao_ble//zmk
+    shield: totem_right rgbled_adapter
+  - board: xiao_ble//zmk
+    shield: settings_reset
