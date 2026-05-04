@@ -42,4 +42,5 @@ I use neither of those (I use a slightly customized [Graphite](https://github.co
     - when the device unmounts and disappears, reconnect and remount.
     - flash regular firmware
     - this procedure allows you to start from clean slate. Don't forget to remove the bluetooth connection that may have been saved by your bluetooth daemon
-- There's also a GUI/web interface, [ZMK Studio](https://zmk.dev/docs/features/studio), for those who prefer visuals and runtime updates to writing code-like configs and flashing firmware. This is WIP at the moment.
+- There's also a GUI/web interface, [ZMK Studio](https://zmk.dev/docs/features/studio), for those who prefer visuals and runtime updates to writing code-like configs and flashing firmware.
+This is WIP at the moment but feels free to add it yourself or submit a PR
