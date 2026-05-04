@@ -1,0 +1,247 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define BASE 0
+#define NAV  1
+#define NSL  2
+#define ADJ  3
+
+&mt {
+  /* tapping-term-ms = <170>; */
+    quick-tap-ms = <250>;
+    /* flavor = "hold-preferred"; */
+  /* global-quick-tap; */
+};
+
+&lt {
+    /* tapping-term-ms = <170>; */
+    quick-tap-ms = <250>;
+    /* flavor = "tap-preferred"; */
+    /* global-quick-tap; */
+    require-prior-idle-ms = <250>;
+};
+
+&sk {
+    quick-release;
+};
+
+/ {
+    behaviors {
+       /*
+        *
+        */
+        caps_tdr: caps_tap_dance_right {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            /* bindings = <&smt RSHFT RALT>, <&caps_word>; */
+            bindings = <&sk RALT>, <&caps_word>;
+        };
+
+        caps_tdl: caps_tap_dance_left {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&slt 1 LSHFT>, <&caps_word>;
+        };
+
+
+       /*   Custom mod-tap/layer-tap behavior.
+        *   The main idea is to accomodate
+        *   the one-shot (i.e. sticky) mods.
+        */
+        slt: sticky_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            /* require-prior-idle-ms = <250>; */
+            bindings = <&mo>, <&sk>;
+            display-name = "Sticky-Layer-Tap";
+        };
+
+        smt: sticky_mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&sk>;
+            display-name = "Sticky-Mod-Tap";
+        };
+
+       /*   Tapping the key invokes the Caps-Word
+        *   behavior while holding it is used
+        *   as a regular key press.
+        *
+        *   One thing to note here is that the second parameter
+        *   is passed a dummy argument value (e.g. 0), per the 
+        *   official documentation.
+        */
+        ht_caps: hold_tap_caps {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&caps_word>;
+            display-name = "Caps Hold Tap";
+        };
+
+       /*   CTRL -based behavior of what would normally be a plain SPACE.
+        *   Implemented as nested mod-morphs. The main idea is that `space`
+        *   and `comma` are among the most commonly typed characters; hence
+        *   their optimized placement (again, not without some individual
+        *   preferences).
+        */
+        spc_L1: rctl_space {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lt 2 SPACE>, <&kp COMMA>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        spc_L0: lctl_space {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            /* bindings = <&spc_L1>, <&kp COLON>; */
+            bindings = <&lt 2 SPACE>, <&kp COLON>;
+            mods = <(MOD_LCTL)>;
+        };
+
+       /*   Quasi-Shift behavior for certain keys.
+        *   In the traditional QWERTY layout/keyboard proper,
+        *   pairs of non-alphanumeric symbols seem to be tightly coupled
+        *   with one another via Shift Mod Key (e.g. / and ? ).
+        *   In ZMK, there could actually be an easier way to decouple them,
+        *   and, as such, this schema is also subject to revision.
+        */
+        s_minus: shift_minus {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp PLUS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        s_dot: shift_dot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp GT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        s_slash: shift_slash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH>, <&kp LT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        s_quote: shift_quotes {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp APOS>, <&kp GRAVE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        ecc: esc_comma_ctl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mt LCTRL ESC>, <&kp COMMA>;
+            mods = <MOD_RCTL>;
+        };
+
+       /*
+        *
+        *
+        */
+        mm_ctrl_bspc: ctrl_bspc {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mt RCTRL BSPC>, <&kp BSPC>;
+            mods = <MOD_LCTL>;
+            keep-mods = <MOD_LCTL>;
+        };
+
+    };
+
+    macros {
+       /*   Easier navigation macros.  */
+        four_down: four_down_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp DOWN &kp DOWN &kp DOWN &kp DOWN>;
+        };
+
+        four_up: four_up_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp UP &kp UP &kp UP &kp UP>;
+        };
+
+        eight_down: eight_down_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp N8 &kp DOWN>;
+        };
+
+        eight_up: eight_up_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp N8 &kp UP>;
+        };
+    };
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------- 
+              ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+              ┃     b     ┃     l     ┃     d     ┃     w     ┃    z      ┃   ┃     "     ┃     f     ┃     o     ┃     u     ┃     j     ┃
+              ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+              ┃     n     ┃     r     ┃     t     ┃     s     ┃    g      ┃   ┃     y     ┃     h     ┃     a     ┃     e     ┃     i     ┃
+  ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
+  ┃           ┃     q     ┃     x     ┃     m     ┃     c     ┃    v      ┃   ┃     k     ┃     p     ┃   - (+)   ┃   . (>)   ┃  / (<)    ┃           ┃
+  ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+                                      ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
+                                      ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+*/
+    keymap {
+        compatible = "zmk,keymap";
+        base_layer {
+            label= "BASE";
+            bindings = <
+                  &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
+                  &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
+    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &kp EQUAL &lt 3 RET
+                                        &mt LMETA TAB &slt 1 LSHFT  &spc_L0     &mm_ctrl_bspc  &sk LALT        &ht_caps LSHFT 0
+            >;
+        };
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
+        nav_layer {
+            label= "NAV";
+            bindings = <
+                &trans     &kp LG(N7)  &kp LG(N8)   &kp LG(N9)  &trans          &kp DQT    &kp RA(F)    &eight_down &eight_up   &kp RA(B)
+                &trans     &kp LG(N4)  &kp LG(N5)   &kp LG(N6)  &trans          &kp ESC    &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT
+    &kp EXCL    &kp LG(N0) &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &kp COLON  &kp GT       &four_down   &four_up    &kp LT     &kp FSLH
+                                       &trans       &trans      &trans          &kp QMARK  &kp EXCL     &trans
+            >;
+        };
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
+        num_sym_layer {
+            label= "NSL";
+            bindings = <
+                &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp BSLH        &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp DOT
+                &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp ASTRK       &kp UNDER   &kp N4      &kp N5      &kp N6     &kp FSLH
+    &kp MINUS   &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp TILDE       &kp SEMI    &kp N1      &kp N2      &kp N3     &kp N0      &kp PLUS
+                                        &trans       &trans      &trans          &kp RET     &kp SPACE    &kp COMMA
+            >;
+        };
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
+        adjust_layer {
+            label= "ADJ";
+            bindings = <
+                &trans       &kp F7     &kp F8       &kp F9      &kp F10         &bt BT_CLR   &trans      &trans       &trans      &trans
+                &trans       &kp F4     &kp F5       &kp F6      &kp F11         &trans       &trans      &sys_reset   &trans      &trans
+    &trans      &trans       &kp F1     &kp F2       &kp F3      &kp F12         &trans       &trans      &trans       &trans      &trans    &trans
+                                        &trans       &trans      &kp LS(SPACE)   &bt BT_NXT   &bt BT_PRV  &out OUT_TOG
+            >;
+        };
+    };
+};
