@@ -146,8 +146,8 @@
         ecc: esc_comma_ctl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            /* bindings = <&mt LCTRL ESC>, <&kp COMMA>; */
-            bindings = <&kp LCTRL>, <&kp COMMA>;
+            bindings = <&mt LCTRL ESC>, <&kp COMMA>;
+            /* bindings = <&kp LCTRL>, <&kp COMMA>; */
             mods = <MOD_RCTL>;
         };
 
@@ -246,8 +246,8 @@
             bindings = <
                 &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp BSLH        &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp DOT
                 &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp ASTRK       &kp UNDER   &kp N4      &kp N5      &kp N6     &kp FSLH
-    &kp MINUS   &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp TILDE       &kp SEMI    &kp N1      &kp N2      &kp N3     &kp N0      &kp PLUS
-                                        &trans       &trans      &trans          &kp RET     &kp QMARK   &kp COMMA
+    &kp SPACE   &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp TILDE       &kp SEMI    &kp N1      &kp N2      &kp N3     &kp N0      &kp PLUS
+                                        &trans       &trans      &trans          &kp RET     &kp SPACE   &kp SPACE
             >;
         };
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
