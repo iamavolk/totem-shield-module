@@ -157,7 +157,16 @@
         mm_ctrl_bspc: ctrl_bspc {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&mt RCTRL BSPC>, <&kp BSPC>;
+            /* bindings = <&mt RCTRL BSPC>, <&kp BSPC>; */
+            bindings = <&mt RCTRL BSPC>, <&mm_meta_qmark>;
+            mods = <(MOD_LGUI|MOD_LCTL)>;
+            /* keep-mods = <MOD_LCTL>; */
+        };
+
+        mm_meta_qmark: mm_meta_qmark {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp QMARK>, <&kp BSPC>;
             mods = <MOD_LCTL>;
             keep-mods = <MOD_LCTL>;
         };
