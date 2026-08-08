@@ -175,7 +175,8 @@
         mm_sk_alt_excl: mm_sk_alt_excl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&sk LALT>, <&kp EXCL>;
+            /* bindings = <&sk LALT>, <&kp EXCL>; */
+            bindings = <&smt LALT LSHFT>, <&kp EXCL>;
             mods = <MOD_LGUI>;
         };
 
