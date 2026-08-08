@@ -65,7 +65,7 @@
         smt: sticky_mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&kp>, <&sk>;
             display-name = "Sticky-Mod-Tap";
