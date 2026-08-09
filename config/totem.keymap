@@ -182,6 +182,13 @@
             mods = <MOD_LGUI>;
         };
 
+        mm_k_col_gui: mm_k_col_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&sk K>, <&kp COLON>;
+            mods = <MOD_LGUI>;
+        };
+
     };
 
     macros {
@@ -229,7 +236,7 @@
             bindings = <
                   &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
                   &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
-    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &kp EQUAL &lt 3 RET
+    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &mm_k_col_gui  &kp P           &s_minus   &s_dot  &kp EQUAL &lt 3 RET
                                         &mt LMETA TAB &slt 1 LSHFT  &lt 2 SPACE &mm_ctrl_bspc  &mm_sk_alt_excl &ht_caps LSHFT 0
             >;
         };
