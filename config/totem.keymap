@@ -65,7 +65,10 @@
         smt: sticky_mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            // TODO: if intend to use in the future,
+            //       might want to revert back to "hold-preferred"
+            //       for standard behavior
+            flavor = "tap-unless-interrupted";
             tapping-term-ms = <200>;
             bindings = <&kp>, <&sk>;
             display-name = "Sticky-Mod-Tap";
@@ -179,6 +182,13 @@
             mods = <MOD_LGUI>;
         };
 
+        mm_k_col_gui: mm_k_col_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&sk K>, <&kp COLON>;
+            mods = <MOD_LGUI>;
+        };
+
     };
 
     macros {
@@ -226,7 +236,7 @@
             bindings = <
                   &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
                   &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
-    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &kp K          &kp P           &s_minus   &s_dot  &kp EQUAL &lt 3 RET
+    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &mm_k_col_gui  &kp P           &s_minus   &s_dot  &kp EQUAL &lt 3 RET
                                         &mt LMETA TAB &slt 1 LSHFT  &lt 2 SPACE &mm_ctrl_bspc  &mm_sk_alt_excl &ht_caps LSHFT 0
             >;
         };
@@ -236,7 +246,7 @@
             bindings = <
                 &trans     &kp LG(N7)  &kp LG(N8)   &kp LG(N9)  &trans          &kp DQT    &kp RA(F)    &eight_down &eight_up   &kp RA(B)
                 &trans     &kp LG(N4)  &kp LG(N5)   &kp LG(N6)  &trans          &kp ESC    &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT
-    &kp EXCL    &kp LG(N0) &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &kp COLON  &kp GT       &four_down   &four_up    &kp LT     &kp FSLH
+    &kp COLON   &kp LG(N0) &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &kp SEMI   &kp GT       &four_down   &four_up    &kp LT     &kp FSLH
                                        &trans       &trans      &trans          &kp SPACE  &kp SPACE    &kp SPACE
             >;
         };
@@ -245,8 +255,8 @@
             label= "NSL";
             bindings = <
                 &kp HASH    &kp LBKT    &kp RBKT     &kp PIPE    &kp BSLH        &kp PRCNT   &kp N7      &kp N8      &kp N9     &kp DOT
-                &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp ASTRK       &kp ESC     &kp N4      &kp N5      &kp N6     &kp FSLH
-    &kp UNDER   &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp TILDE       &kp SEMI    &kp N1      &kp N2      &kp N3     &kp N0      &kp PLUS
+                &kp AT      &kp LPAR    &kp RPAR     &kp AMPS    &kp ASTRK       &kp UNDER   &kp N4      &kp N5      &kp N6     &kp FSLH
+    &kp SEMI    &kp CARET   &kp LBRC    &kp RBRC     &kp DOLLAR  &kp TILDE       &kp COLON   &kp N1      &kp N2      &kp N3     &kp N0      &kp PLUS
                                         &trans       &trans      &trans          &kp RET     &kp SPACE   &kp SPACE
             >;
         };
