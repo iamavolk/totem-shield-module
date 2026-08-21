@@ -185,7 +185,7 @@
         mm_k_col_gui: mm_k_col_gui {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&sk K>, <&kp COLON>;
+            bindings = <&kp K>, <&kp COLON>;
             mods = <MOD_LGUI>;
         };
 
