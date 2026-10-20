@@ -203,6 +203,20 @@
             mods = <MOD_LGUI>;
         };
 
+        mm_p_qmark_gui: mm_p_qmark_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp P>, <&kp QMARK>;
+            mods = <MOD_LGUI>;
+        };
+
+        mm_h_excl_gui: mm_h_excl_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp H>, <&kp EXCL>;
+            mods = <MOD_LGUI>;
+        };
+
     };
 
     macros {
@@ -249,8 +263,8 @@
             label= "BASE";
             bindings = <
                   &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
-                  &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
-    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &mm_k_col_gui  &kp P           &s_minus   &s_dot  &mm_lgui_equal &lt 3 RET
+                  &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &mm_h_excl_gui  &kp A      &kp E   &kp I
+    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &mm_k_col_gui  &mm_p_qmark_gui &s_minus   &s_dot  &mm_lgui_equal &lt 3 RET
                                         &mt LMETA TAB &slt 1 LSHFT  &lt 2 SPACE &mm_ctrl_bspc  &mm_sk_alt_excl &mm_lgui_caps
             >;
         };
