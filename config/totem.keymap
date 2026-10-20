@@ -121,8 +121,17 @@
         s_minus: shift_minus {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp PLUS>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            /* bindings = <&kp MINUS>, <&kp PLUS>; */
+            bindings = <&kp MINUS>, <&s_minus_ext>;
+            mods = <(MOD_LSFT|MOD_RSFT|MOD_LGUI)>;
+            keep-mods = <MOD_LGUI>;
+        };
+
+        s_minus_ext: s_minus_ext {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp PLUS>, <&kp EXCL>;
+            mods = <MOD_LGUI>;
         };
 
         s_dot: shift_dot {
@@ -264,7 +273,7 @@
             label= "BASE";
             bindings = <
                   &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
-                  &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &mm_h_excl_gui  &kp A      &kp E   &kp I
+                  &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
     &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &mm_k_col_gui  &mm_p_qmark_gui &s_minus   &s_dot  &mm_lgui_equal &lt 3 RET
                                         &mt LMETA TAB &slt 1 LSHFT  &lt 2 SPACE &mm_ctrl_bspc  &mm_sk_alt_excl &mm_lgui_caps
             >;
