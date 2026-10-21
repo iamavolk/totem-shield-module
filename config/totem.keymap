@@ -213,10 +213,10 @@
             mods = <MOD_LGUI>;
         };
 
-        mm_p_qmark_gui: mm_p_qmark_gui {
+        mm_dot_qmark_gui: mm_dot_qmark_gui {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp P>, <&kp QMARK>;
+            bindings = <&kp DOT>, <&kp QMARK>;
             mods = <MOD_LGUI>;
         };
 
@@ -272,9 +272,9 @@
         base_layer {
             label= "BASE";
             bindings = <
-                  &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F           &kp O      &kp U   &kp J
-                  &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H           &kp A      &kp E   &kp I
-    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &mm_k_col_gui  &mm_p_qmark_gui &s_minus   &s_dot  &mm_lgui_equal &lt 3 RET
+                  &kp B     &kp L       &kp D         &kp W         &kp Z       &s_quote       &kp F     &kp O      &kp U             &kp J
+                  &kp N     &kp R       &kp T         &kp S         &kp G       &kp Y          &kp H     &kp A      &kp E             &kp I
+    &ecc          &kp Q     &kp X       &kp M         &kp C         &kp V       &mm_k_col_gui  &kp P     &s_minus   &mm_dot_qmark_gui &mm_lgui_equal &lt 3 RET
                                         &mt LMETA TAB &slt 1 LSHFT  &lt 2 SPACE &mm_ctrl_bspc  &mm_sk_alt_excl &mm_lgui_caps
             >;
         };
@@ -284,7 +284,7 @@
             bindings = <
                 &trans     &kp LG(N7)  &kp LG(N8)   &kp LG(N9)  &trans          &kp DQT    &kp RA(F)    &eight_down &eight_up   &kp RA(B)
                 &trans     &kp LG(N4)  &kp LG(N5)   &kp LG(N6)  &trans          &kp ESC    &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT
-    &kp COLON   &kp LG(N0) &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &kp SEMI   &kp GT       &four_down   &four_up    &kp LT     &kp FSLH
+    &kp COLON   &kp LG(N0) &kp LG(N1)  &kp LG(N2)   &kp LG(N3)  &trans          &kp SEMI   &kp GT       &four_down  &four_up    &kp LT     &kp FSLH
                                        &trans       &trans      &trans          &kp SPACE  &kp SPACE    &kp SPACE
             >;
         };
